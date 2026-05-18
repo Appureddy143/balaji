@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y python3 python3-pip
 COPY ai-service ./ai-service
 
 # Install Python dependencies
-RUN pip3 install -r ai-service/requirements.txt
+RUN pip3 install --break-system-packages -r ai-service/requirements.txt
 
 # Copy frontend build
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
